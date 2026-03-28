@@ -1,0 +1,88 @@
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg);
+    transition:
+        background-color var(--transition-base),
+        color var(--transition-base);
+    overflow-x: hidden;
+    overscroll-behavior-y: contain;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+}
+
+::selection {
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+}
+
+/* Hide scrollbar on mobile, thin scrollbar on desktop */
+@media (max-width: 640px) {
+    * {
+        scrollbar-width: none;
+    }
+    *::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@media (min-width: 641px) {
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--color-border);
+        border-radius: var(--radius-full);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-text-tertiary);
+    }
+}
+
+/* Prevent double-tap zoom on all interactive elements */
+button,
+a,
+input,
+select,
+textarea,
+[role="button"] {
+    touch-action: manipulation;
+}
+
+/* Form elements mobile optimization */
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"] {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input,
+select,
+textarea {
+    font-size: var(--font-size-base);
+    border-radius: 0;
+    -webkit-border-radius: 0;
+}
+
+/* Prevent iOS zoom on focus for inputs smaller than 16px */
+@media screen and (max-width: 640px) {
+    input,
+    select,
+    textarea {
+        font-size: max(var(--font-size-base), 16px);
+    }
+}
+
+/* Momentum scrolling for iOS */
+[data-scroll] {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+}

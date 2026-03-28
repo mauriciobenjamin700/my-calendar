@@ -1,0 +1,150 @@
+.page {
+    padding: var(--space-md);
+    padding-left: max(var(--space-md), var(--safe-area-left));
+    padding-right: max(var(--space-md), var(--safe-area-right));
+}
+
+.pageTitle {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-lg);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+}
+
+.input {
+    width: 100%;
+    padding: 14px var(--space-md);
+    min-height: var(--touch-target-min);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-base);
+    transition: border-color var(--transition-fast);
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-bg);
+}
+
+.textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.row {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.row > .field {
+    flex: 1;
+}
+
+@media (max-width: 480px) {
+    .row {
+        flex-direction: column;
+    }
+}
+
+.select {
+    width: 100%;
+    padding: 14px var(--space-md);
+    min-height: var(--touch-target-min);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-base);
+    transition: border-color var(--transition-fast);
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    padding-right: 40px;
+}
+
+.select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-bg);
+}
+
+.checkboxRow {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    min-height: var(--touch-target-min);
+}
+
+.checkboxInput {
+    width: 24px;
+    height: 24px;
+    accent-color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.remindersSection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.reminderChip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    min-height: 40px;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.reminderChipActive {
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+}
+
+.reminderChipInactive {
+    background-color: var(--color-surface-hover);
+    color: var(--color-text-secondary);
+}
+
+.reminderChipInactive:active {
+    background-color: var(--color-surface-active);
+}
+
+.actions {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+}

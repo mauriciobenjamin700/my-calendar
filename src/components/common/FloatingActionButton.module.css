@@ -1,0 +1,31 @@
+.fab {
+    position: fixed;
+    bottom: calc(
+        var(--bottom-nav-height) + var(--space-md) + var(--safe-area-bottom)
+    );
+    right: max(var(--space-md), var(--safe-area-right));
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+    z-index: var(--z-fab);
+    transition:
+        background-color var(--transition-fast),
+        transform var(--transition-fast);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.fab:hover {
+    background-color: var(--color-primary-dark);
+    transform: scale(1.05);
+}
+
+.fab:active {
+    transform: scale(0.92);
+    background-color: var(--color-primary-dark);
+}

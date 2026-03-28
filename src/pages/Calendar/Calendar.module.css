@@ -1,0 +1,415 @@
+.page {
+    display: flex;
+    flex-direction: column;
+}
+
+.viewSwitcher {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    background-color: var(--color-surface);
+}
+
+.viewButton {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    padding: var(--space-sm) var(--space-md);
+    min-height: 36px;
+    border-radius: var(--radius-full);
+    color: var(--color-text-secondary);
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.viewButton:hover {
+    background-color: var(--color-surface-hover);
+}
+
+.viewButton:active {
+    background-color: var(--color-surface-active);
+}
+
+.viewButtonActive {
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+}
+
+.viewButtonActive:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.weekDaysHeader {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: var(--space-sm) 0;
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.weekDayLabel {
+    text-align: center;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.monthGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    flex: 1;
+    overflow: hidden;
+}
+
+.dayCell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-xs) 2px;
+    min-height: 60px;
+    border-bottom: 1px solid var(--color-border-light);
+    border-right: 1px solid var(--color-border-light);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.dayCell:hover {
+    background-color: var(--color-surface-hover);
+}
+
+.dayCell:active {
+    background-color: var(--color-surface-active);
+}
+
+.dayCell:nth-child(7n) {
+    border-right: none;
+}
+
+.dayCellOutside {
+    opacity: 0.35;
+}
+
+.dayNumber {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    color: var(--color-text-primary);
+}
+
+.dayNumberToday {
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    font-weight: var(--font-weight-bold);
+}
+
+.dayNumberSelected {
+    background-color: var(--color-secondary-bg);
+    color: var(--color-secondary);
+}
+
+.taskDots {
+    display: flex;
+    gap: 3px;
+    margin-top: 3px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.taskDot {
+    width: 5px;
+    height: 5px;
+    border-radius: var(--radius-full);
+}
+
+.selectedDayPanel {
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-md);
+    padding-left: max(var(--space-md), var(--safe-area-left));
+    padding-right: max(var(--space-md), var(--safe-area-right));
+    min-height: 180px;
+}
+
+.selectedDayTitle {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.taskItem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-sm);
+    min-height: var(--touch-target-min);
+    border-radius: var(--radius-md);
+    transition: background-color var(--transition-fast);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.taskItem:hover {
+    background-color: var(--color-surface-hover);
+}
+
+.taskItem:active {
+    background-color: var(--color-surface-active);
+}
+
+.taskColorBar {
+    width: 3px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    flex-shrink: 0;
+}
+
+.taskInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.taskTitle {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.taskTitleCompleted {
+    text-decoration: line-through;
+    color: var(--color-text-tertiary);
+}
+
+.taskTime {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    display: block;
+    margin-top: 1px;
+}
+
+/* Checkbox with proper touch target */
+.checkbox {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition:
+        border-color var(--transition-fast),
+        background-color var(--transition-fast);
+    /* Expand touch target beyond visual bounds */
+    position: relative;
+}
+
+.checkbox::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+}
+
+.checkbox:hover {
+    border-color: var(--color-primary);
+}
+
+.checkbox:active {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary-bg);
+}
+
+.checkboxCompleted {
+    background-color: var(--color-success);
+    border-color: var(--color-success);
+}
+
+/* ── Week View ─────────────────────────────────── */
+
+.weekGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background-color: var(--color-border-light);
+}
+
+.weekDay {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-bg);
+    padding: var(--space-sm) var(--space-md);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color var(--transition-fast);
+}
+
+.weekDay:active {
+    background-color: var(--color-surface-active);
+}
+
+.weekDaySelected {
+    background-color: var(--color-surface);
+}
+
+.weekDayHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xs);
+}
+
+.weekDayName {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    width: 32px;
+}
+
+.weekDayNumber {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+}
+
+.weekDayTasks {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding-left: 40px;
+}
+
+.weekDayEmpty {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-tertiary);
+}
+
+.weekTask {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-xs) var(--space-sm);
+    border-left: 3px solid;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    background-color: var(--color-surface);
+}
+
+.weekTaskTitle {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.weekTaskTime {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    flex-shrink: 0;
+}
+
+/* ── Day Timeline View ─────────────────────────── */
+
+.dayTimeline {
+    padding: var(--space-md);
+    padding-left: max(var(--space-md), var(--safe-area-left));
+    padding-right: max(
+        var(--space-md),
+        var(--safe-area-right)
+    );
+}
+
+.dayTimelineTitle {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+}
+
+.allDaySection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-sm) 0;
+    margin-bottom: var(--space-md);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.allDayLabel {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    margin-bottom: var(--space-xs);
+}
+
+.hoursList {
+    display: flex;
+    flex-direction: column;
+}
+
+.hourRow {
+    display: flex;
+    gap: var(--space-sm);
+    min-height: 48px;
+    border-top: 1px solid var(--color-border-light);
+    padding: var(--space-xs) 0;
+}
+
+.hourLabel {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-tertiary);
+    width: 44px;
+    flex-shrink: 0;
+    padding-top: 2px;
+    text-align: right;
+}
+
+.hourContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.timelineTask {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-xs) var(--space-sm);
+    border-left: 3px solid;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    background-color: var(--color-surface);
+    cursor: pointer;
+    min-height: var(--touch-target-min);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.timelineTask:active {
+    background-color: var(--color-surface-hover);
+}

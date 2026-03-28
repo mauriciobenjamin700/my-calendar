@@ -1,0 +1,26 @@
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xl) var(--space-md);
+    text-align: center;
+    gap: var(--space-sm);
+}
+
+.icon {
+    color: var(--color-text-tertiary);
+    opacity: 0.5;
+}
+
+.title {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+}
+
+.description {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    max-width: min(280px, calc(100vw - 64px));
+}
