@@ -20,7 +20,6 @@ export function SettingsPage(): React.JSX.Element {
     const { mode, setMode } = useThemeStore();
     const { addToast } = useNotificationStore();
     const { deferredPrompt, isInstalled, installApp } = usePwaStore();
-    const canInstall = deferredPrompt !== null && !isInstalled;
     const [notificationPermission, setNotificationPermission] =
         useState<NotificationPermission>(getInitialPermission);
 
@@ -144,7 +143,7 @@ export function SettingsPage(): React.JSX.Element {
                 </div>
             </div>
 
-            {canInstall && (
+            {!isInstalled && (
                 <div className={styles.section}>
                     <h3 className={styles.sectionTitle}>
                         {t("settings.installApp")}
@@ -156,15 +155,19 @@ export function SettingsPage(): React.JSX.Element {
                                     {t("settings.installApp")}
                                 </div>
                                 <div className={styles.optionDescription}>
-                                    {t("settings.installDescription")}
+                                    {deferredPrompt
+                                        ? t("settings.installDescription")
+                                        : t("settings.installManual")}
                                 </div>
                             </div>
-                            <Button
-                                variant="secondary"
-                                onClick={handleInstallApp}
-                            >
-                                {t("settings.installButton")}
-                            </Button>
+                            {deferredPrompt && (
+                                <Button
+                                    variant="secondary"
+                                    onClick={handleInstallApp}
+                                >
+                                    {t("settings.installButton")}
+                                </Button>
+                            )}
                         </div>
                     </div>
                 </div>

@@ -111,7 +111,10 @@ export const enUS = {
     "settings.installApp": "Install App",
     "settings.installDescription":
         "Install as a standalone app for quick access",
+    "settings.installManual":
+        "Use your browser menu to add this app to your home screen",
     "settings.installButton": "Install",
+    "settings.installed": "App already installed",
     "settings.installSuccess": "App installed successfully",
     "settings.installDismissed": "Installation dismissed",
     "settings.appDescription": "Local-first calendar and task scheduler",

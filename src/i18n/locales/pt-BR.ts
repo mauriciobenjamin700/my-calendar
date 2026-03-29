@@ -114,7 +114,10 @@ export const ptBR: Record<TranslationKey, string> = {
     "settings.installApp": "Instalar Aplicativo",
     "settings.installDescription":
         "Instale como aplicativo para acesso rápido",
+    "settings.installManual":
+        "Use o menu do navegador para adicionar à tela inicial",
     "settings.installButton": "Instalar",
+    "settings.installed": "Aplicativo já instalado",
     "settings.installSuccess": "Aplicativo instalado com sucesso",
     "settings.installDismissed": "Instalação cancelada",
     "settings.appDescription": "Calendário e agendador de tarefas local",
