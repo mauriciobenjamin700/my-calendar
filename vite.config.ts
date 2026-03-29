@@ -8,8 +8,11 @@ export default defineConfig({
     plugins: [
         react(),
         VitePWA({
-            registerType: "prompt",
+            registerType: "autoUpdate",
             includeAssets: ["favicon.svg", "icons/*.png"],
+            devOptions: {
+                enabled: true,
+            },
             workbox: {
                 globPatterns: ["**/*.{js,css,html,ico,png,svg,woff2}"],
                 runtimeCaching: [
@@ -30,16 +33,32 @@ export default defineConfig({
                 name: "My Calendar",
                 short_name: "Calendar",
                 description: "Personal calendar and task scheduler",
-                start_url: ".",
-                scope: ".",
+                start_url: "/my-calendar/",
+                scope: "/my-calendar/",
                 display: "standalone",
                 orientation: "portrait-primary",
                 background_color: "#1A1A2E",
                 theme_color: "#3B82F6",
                 categories: ["productivity", "utilities"],
                 icons: [
-                    { src: "./icons/icon-192x192.png", sizes: "192x192", type: "image/png", purpose: "any" },
-                    { src: "./icons/icon-512x512.png", sizes: "512x512", type: "image/png", purpose: "any maskable" },
+                    {
+                        src: "./icons/icon-192x192.png",
+                        sizes: "192x192",
+                        type: "image/png",
+                        purpose: "any",
+                    },
+                    {
+                        src: "./icons/icon-512x512.png",
+                        sizes: "512x512",
+                        type: "image/png",
+                        purpose: "any",
+                    },
+                    {
+                        src: "./icons/icon-512x512.png",
+                        sizes: "512x512",
+                        type: "image/png",
+                        purpose: "maskable",
+                    },
                 ],
             },
         }),
