@@ -1,7 +1,7 @@
 import { Check } from "lucide-react";
+import type { Task } from "@/core/types";
 import { useTranslation } from "@/i18n";
 import { format, parseISO, formatTime } from "@/lib/date";
-import type { Task } from "@/core/types";
 import styles from "./Calendar.module.css";
 
 const HOURS = Array.from({ length: 24 }, (_, i) => i);

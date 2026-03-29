@@ -1,5 +1,5 @@
-import { useTranslation } from "@/i18n";
 import type { Category, TaskPriority } from "@/core/types";
+import { useTranslation } from "@/i18n";
 import { PRIORITIES } from "./data";
 import styles from "./TaskCreate.module.css";
 

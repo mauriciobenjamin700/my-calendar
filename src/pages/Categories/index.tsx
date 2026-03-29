@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Trash2 } from "lucide-react";
 import { Button } from "@/components/common";
-import { useTranslation } from "@/i18n";
 import { CATEGORY_COLORS } from "@/core/constants";
 import { useCategories, useCreateCategory, useDeleteCategory } from "@/hooks";
+import { useTranslation } from "@/i18n";
 import { useNotificationStore } from "@/stores";
 import styles from "./Categories.module.css";
 

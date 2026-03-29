@@ -8,7 +8,6 @@
 .content {
     flex: 1;
     padding-bottom: calc(
-        var(--bottom-nav-height) + var(--safe-area-bottom) +
-            var(--space-lg)
+        var(--bottom-nav-height) + var(--safe-area-bottom) + var(--space-lg)
     );
 }

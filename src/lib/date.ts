@@ -51,7 +51,8 @@ export {
 };
 
 /**
- * Get all days needed to display a full calendar month grid (including overflow days).
+ * Get all days needed to display a full calendar month grid.
+ * Includes overflow days from adjacent months.
  *
  * @param date - Any date within the target month.
  * @returns Array of dates covering the full calendar grid (Sunday start).

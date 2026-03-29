@@ -17,7 +17,10 @@ export interface Task {
     description: string;
     /** ISO 8601 datetime string for when the task starts. */
     startDate: string;
-    /** ISO 8601 datetime string for when the task ends (null = point-in-time task). */
+    /**
+     * ISO 8601 datetime string for when the task ends.
+     * Null means a point-in-time task.
+     */
     endDate: string | null;
     /** Whether this is an all-day event. */
     allDay: boolean;

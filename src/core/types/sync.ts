@@ -1,4 +1,7 @@
-/** Sync status for local-first architecture. Every syncable entity carries this. */
+/**
+ * Sync status for local-first architecture.
+ * Every syncable entity carries this.
+ */
 export type SyncStatus =
     | "local"
     | "synced"

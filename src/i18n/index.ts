@@ -1,8 +1,8 @@
 import { enUS } from "./locales/en-US";
+import type { TranslationKey } from "./locales/en-US";
 import { ptBR } from "./locales/pt-BR";
 import { useLocaleStore } from "./store";
 import type { Locale } from "./store";
-import type { TranslationKey } from "./locales/en-US";
 
 export type { TranslationKey, Locale };
 export { useLocaleStore };

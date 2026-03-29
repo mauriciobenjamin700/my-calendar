@@ -1,3 +1,4 @@
+import type { Task } from "@/core/types";
 import {
     format,
     isSameDay,
@@ -7,7 +8,6 @@ import {
     parseISO,
     formatTime,
 } from "@/lib/date";
-import type { Task } from "@/core/types";
 import styles from "./Calendar.module.css";
 
 interface WeekGridProps {

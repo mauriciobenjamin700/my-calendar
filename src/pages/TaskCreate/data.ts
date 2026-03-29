@@ -1,5 +1,5 @@
-import type { TranslationKey } from "@/i18n";
 import type { TaskPriority } from "@/core/types";
+import type { TranslationKey } from "@/i18n";
 
 export interface ReminderOption {
     labelKey: TranslationKey;

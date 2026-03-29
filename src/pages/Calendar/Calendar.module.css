@@ -338,10 +338,7 @@
 .dayTimeline {
     padding: var(--space-md);
     padding-left: max(var(--space-md), var(--safe-area-left));
-    padding-right: max(
-        var(--space-md),
-        var(--safe-area-right)
-    );
+    padding-right: max(var(--space-md), var(--safe-area-right));
 }
 
 .dayTimelineTitle {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/common";
-import { useTranslation, useLocaleStore } from "@/i18n";
 import { APP_NAME, APP_VERSION } from "@/core/settings";
+import { useTranslation, useLocaleStore } from "@/i18n";
 import { useThemeStore, useNotificationStore } from "@/stores";
 import { THEME_OPTIONS, LANGUAGE_OPTIONS } from "./data";
 import styles from "./Settings.module.css";

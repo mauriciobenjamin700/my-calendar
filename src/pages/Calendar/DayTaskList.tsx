@@ -1,7 +1,7 @@
 import { CalendarPlus, Check } from "lucide-react";
 import { EmptyState } from "@/components/common";
-import { useTranslation } from "@/i18n";
 import type { Task } from "@/core/types";
+import { useTranslation } from "@/i18n";
 import { format, parseISO, formatTime } from "@/lib/date";
 import styles from "./Calendar.module.css";
 

@@ -28,12 +28,14 @@ export function CalendarPage(): React.JSX.Element {
     const { selectedDate, setSelectedDate, viewMode, setViewMode } =
         useCalendarStore();
 
-    const monthKey = `${selectedDate.getFullYear()}-${selectedDate.getMonth()}`;
-    const weekKey = `${monthKey}-${Math.floor(selectedDate.getDate() / 7)}`;
+    const monthKey =
+        `${selectedDate.getFullYear()}-` + `${selectedDate.getMonth()}`;
+    const weekKey =
+        `${monthKey}-` + `${Math.floor(selectedDate.getDate() / 7)}`;
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- recalc only on month change
     const monthDays = useMemo(
         () => getCalendarMonthDays(selectedDate),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         [monthKey],
     );
 

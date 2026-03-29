@@ -1,5 +1,4 @@
-import type { TranslationKey } from "@/i18n";
-import type { Locale } from "@/i18n";
+import type { TranslationKey, Locale } from "@/i18n";
 import type { ThemeMode } from "@/stores";
 
 export interface ThemeOption {

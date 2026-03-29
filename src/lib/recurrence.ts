@@ -17,8 +17,9 @@ import {
  * @param startDate - The first occurrence date (ISO 8601 string).
  * @param rule - The recurrence rule to expand.
  * @param rangeStart - Start of the range to generate occurrences for.
- * @param rangeEnd - End of the range to generate occurrences for.
- * @returns Array of ISO 8601 date strings for each occurrence within the range.
+ * @param rangeEnd - End of the range to generate for.
+ * @returns Array of ISO 8601 date strings for each
+ *   occurrence within the range.
  */
 export function expandRecurrence(
     startDate: string,

@@ -1,7 +1,7 @@
 import { Trash2 } from "lucide-react";
+import type { Task, TaskStatus } from "@/core/types";
 import { useTranslation } from "@/i18n";
 import type { TranslationKey } from "@/i18n";
-import type { Task, TaskStatus } from "@/core/types";
 import styles from "./TaskDetail.module.css";
 
 const STATUS_KEY_MAP: Record<TaskStatus, TranslationKey> = {

@@ -1,7 +1,7 @@
 import { Calendar, Clock, Tag, Flag, Bell } from "lucide-react";
-import { useTranslation } from "@/i18n";
 import { PRIORITY_COLORS } from "@/core/constants";
 import type { Task, Category } from "@/core/types";
+import { useTranslation } from "@/i18n";
 import {
     format,
     parseISO,
