@@ -108,6 +108,12 @@ export const enUS = {
     "settings.notifEnabledToast": "Notifications enabled",
     "settings.notifBlockedToast":
         "Notifications blocked. Enable in browser settings.",
+    "settings.installApp": "Install App",
+    "settings.installDescription":
+        "Install as a standalone app for quick access",
+    "settings.installButton": "Install",
+    "settings.installSuccess": "App installed successfully",
+    "settings.installDismissed": "Installation dismissed",
     "settings.appDescription": "Local-first calendar and task scheduler",
 
     // Not found

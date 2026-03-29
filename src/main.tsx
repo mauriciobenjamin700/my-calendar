@@ -6,12 +6,13 @@ import {
     startNotificationChecker,
     checkInAppNotifications,
 } from "@/lib/notification-scheduler";
-import { initializeTheme } from "@/stores";
+import { initializeTheme, initializePwa } from "@/stores";
 import { App } from "./App";
 import "@/styles/index.css";
 
 seedDefaultCategories();
 const cleanupTheme = initializeTheme();
+const cleanupPwa = initializePwa();
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
@@ -29,5 +30,6 @@ if (import.meta.hot) {
     import.meta.hot.dispose(() => {
         stopNotificationChecker();
         cleanupTheme();
+        cleanupPwa();
     });
 }

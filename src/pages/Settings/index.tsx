@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/common";
 import { APP_NAME, APP_VERSION } from "@/core/settings";
 import { useTranslation, useLocaleStore } from "@/i18n";
-import { useThemeStore, useNotificationStore } from "@/stores";
+import { useThemeStore, useNotificationStore, usePwaStore } from "@/stores";
 import { THEME_OPTIONS, LANGUAGE_OPTIONS } from "./data";
 import styles from "./Settings.module.css";
 
@@ -19,6 +19,8 @@ export function SettingsPage(): React.JSX.Element {
     const { locale, setLocale } = useLocaleStore();
     const { mode, setMode } = useThemeStore();
     const { addToast } = useNotificationStore();
+    const { deferredPrompt, isInstalled, installApp } = usePwaStore();
+    const canInstall = deferredPrompt !== null && !isInstalled;
     const [notificationPermission, setNotificationPermission] =
         useState<NotificationPermission>(getInitialPermission);
 
@@ -36,6 +38,16 @@ export function SettingsPage(): React.JSX.Element {
             addToast("success", t("settings.notifEnabledToast"));
         } else if (permission === "denied") {
             addToast("warning", t("settings.notifBlockedToast"));
+        }
+    };
+
+    const handleInstallApp = async (): Promise<void> => {
+        const accepted = await installApp();
+
+        if (accepted) {
+            addToast("success", t("settings.installSuccess"));
+        } else {
+            addToast("info", t("settings.installDismissed"));
         }
     };
 
@@ -131,6 +143,32 @@ export function SettingsPage(): React.JSX.Element {
                     </div>
                 </div>
             </div>
+
+            {canInstall && (
+                <div className={styles.section}>
+                    <h3 className={styles.sectionTitle}>
+                        {t("settings.installApp")}
+                    </h3>
+                    <div className={styles.optionGroup}>
+                        <div className={styles.optionItem}>
+                            <div>
+                                <div className={styles.optionLabel}>
+                                    {t("settings.installApp")}
+                                </div>
+                                <div className={styles.optionDescription}>
+                                    {t("settings.installDescription")}
+                                </div>
+                            </div>
+                            <Button
+                                variant="secondary"
+                                onClick={handleInstallApp}
+                            >
+                                {t("settings.installButton")}
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             <div className={styles.aboutSection}>
                 <div className={styles.appName}>{APP_NAME}</div>

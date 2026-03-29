@@ -111,6 +111,12 @@ export const ptBR: Record<TranslationKey, string> = {
     "settings.notifEnabledToast": "Notificações ativadas",
     "settings.notifBlockedToast":
         "Notificações bloqueadas. Ative nas configurações do navegador.",
+    "settings.installApp": "Instalar Aplicativo",
+    "settings.installDescription":
+        "Instale como aplicativo para acesso rápido",
+    "settings.installButton": "Instalar",
+    "settings.installSuccess": "Aplicativo instalado com sucesso",
+    "settings.installDismissed": "Instalação cancelada",
     "settings.appDescription": "Calendário e agendador de tarefas local",
 
     // Não encontrado
